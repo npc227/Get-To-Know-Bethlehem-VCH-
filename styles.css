@@ -1,22 +1,5 @@
-/* ================= ROOT & GLOBAL STYLES ================= */
+/* ========== BASIC RESET & PAGE LAYOUT ========== */
 
-/* Color palette based on your image */
-:root {
-  --baby-blue-ice: #9cc9fc;
-  --rosy-taupe: #bf9588;
-  --minted-teal: #7fbeab;
-  --sandy-brown: #ffa85c;
-  --blush-pop: #f9b3d1;
-
-  --bg-page: #fdfbff;
-  --text-main: #1f1f2b;
-  --text-muted: #55586a;
-  --card-bg: #ffffff;
-  --border-subtle: rgba(0, 0, 0, 0.06);
-  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
-}
-
-/* Basic reset + base typography */
 *,
 *::before,
 *::after {
@@ -30,586 +13,235 @@ body {
 }
 
 body {
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--bg-page);
-  color: var(--text-main);
-  line-height: 1.6;
-  font-size: 16px; /* good default for mobile */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #e8f4ff; /* light blue like your mockup */
+  color: #123;
 }
 
-/* Reusable layout helper for consistent max-width */
-.container {
-  width: min(1120px, 92vw);
+/* Mobile-first: main content column centered and max-width */
+.page {
+  max-width: 420px;
   margin: 0 auto;
+  padding: 1rem 0 2rem;
 }
 
-/* ================= HEADER ================= */
-
-.site-header {
-  background: linear-gradient(90deg, var(--baby-blue-ice), var(--minted-teal));
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 0;
-  gap: 0.5rem;
-}
-
-/* Logo styling */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  color: #041322;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  background-color: #041322;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-}
-
-.logo-text {
-  font-size: 0.95rem;
-}
-
-/* Navigation links */
-.main-nav {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: nowrap;
-  overflow-x: auto;              /* mobile-friendly scroll */
-  padding-bottom: 0.2rem;
-  -webkit-overflow-scrolling: touch;
-}
-
-.main-nav::-webkit-scrollbar {
-  display: none;                 /* hide scrollbar on mobile */
-}
-
-.nav-link {
-  text-decoration: none;
-  font-size: 0.88rem;
-  padding: 0.55rem 0.9rem;       /* larger tap target */
-  border-radius: 999px;
-  color: #042133;
+/* Accessibility helper for hidden headings */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  border: 0;
 }
 
-.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-  transform: translateY(-1px);
-}
-
-.nav-link.active {
-  background-color: #041322;
-  color: #ffffff;
-}
-
-/* ================= HERO ================= */
+/* ========== HERO / HEADER ========== */
 
 .hero {
-  padding: 2.4rem 0 2.1rem;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-  gap: 2.5rem;
-  align-items: center;
-}
-
-/* Left-side hero text */
-.hero-text h1 {
-  font-size: clamp(2.1rem, 4vw, 3.1rem);
-  line-height: 1.1;
-  margin: 0.2rem 0 0.75rem;
-}
-
-.hero-subtitle {
-  font-size: 1rem;
-  color: var(--text-muted);
-  max-width: 32rem;
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-}
-
-/* Hero buttons */
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 1.4rem 0 1.2rem;
-}
-
-/* Shared button styles */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem 1.5rem;        /* bigger hit area on touch devices */
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--sandy-brown), var(--blush-pop));
-  color: #261404;
-  box-shadow: 0 12px 25px rgba(148, 87, 60, 0.35);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(148, 87, 60, 0.45);
-}
-
-.btn-ghost {
-  background-color: transparent;
-  color: var(--text-main);
-  border: 1px solid rgba(15, 23, 42, 0.2);
-}
-
-.btn-ghost:hover {
-  background-color: rgba(255, 255, 255, 0.7);
-}
-
-.btn-secondary {
-  background-color: #041322;
-  color: #ffffff;
-}
-
-.btn-secondary:hover {
-  background-color: #0b2235;
-}
-
-/* Fun fact pill */
-.fun-fact {
-  border-radius: 1.1rem;
-  padding: 0.9rem 1rem;
-  background: rgba(156, 201, 252, 0.25);
-  border: 1px dashed rgba(4, 19, 34, 0.12);
-  max-width: 29rem;
-}
-
-.fun-fact-label {
-  display: inline-block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 600;
-  color: #041322;
-}
-
-.fun-fact-text {
-  margin: 0.15rem 0 0;
-  font-size: 0.9rem;
-}
-
-/* Right-side hero card */
-.hero-card {
-  background: radial-gradient(circle at top left, var(--baby-blue-ice) 0, #ffffff 55%);
-  border-radius: 1.75rem;
-  padding: 1.6rem 1.5rem 1.4rem;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid var(--border-subtle);
-}
-
-.hero-card-title {
-  margin: 0 0 0.85rem;
-  font-size: 1.1rem;
-}
-
-.hero-quest-list {
-  list-style: none;
-  margin: 0 0 1.25rem;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-
-.quest-item {
-  padding: 0.7rem 0.8rem;
-  border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(4, 19, 34, 0.06);
-}
-
-.quest-title {
-  margin: 0.2rem 0;
-  font-size: 0.95rem;
-}
-
-.quest-meta {
-  margin: 0;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.hero-card-btn {
-  width: 100%;
-  margin-bottom: 0.5rem;
-}
-
-.hero-card-note {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin: 0;
-}
-
-/* Category-colored tags used throughout */
-.quest-tag,
-.event-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.15rem 0.55rem;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
-}
-
-/* ================= SECTIONS ================= */
-
-.section {
-  padding: 2.2rem 0;
-}
-
-.section-header {
-  margin-bottom: 1.6rem;
-}
-
-.section-header h2 {
-  font-size: 1.6rem;
-  margin: 0 0 0.3rem;
-}
-
-.section-header p {
-  margin: 0;
-  color: var(--text-muted);
-  max-width: 32rem;
-}
-
-.section-header--center {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ================= CATEGORY GRID ================= */
-
-.categories {
-  background: linear-gradient(180deg, rgba(249, 179, 209, 0.12), transparent 40%);
-}
-
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.2rem;
-}
-
-/* Individual category cards */
-.category-card {
-  background-color: var(--card-bg);
-  border-radius: 1.3rem;
-  padding: 1.3rem 1.2rem 1.2rem;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
   position: relative;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
-.category-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
+/* Green rounded sign */
+.welcome-sign {
+  background-color: #5bb270;
+  border-radius: 18px;
+  padding: 1.1rem 1.6rem;
+  border: 6px solid #377549;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-.category-card p {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+.welcome-text {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.3;
 }
 
-/* Dot pattern accent in top right of cards */
-.category-card::after {
+/* Star is separate from the sign but positioned near it */
+.star-button {
+  position: absolute;
+  right: 0.8rem;
+  bottom: -0.6rem;
+  width: 54px;
+  height: 54px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Actual star shape using clip-path */
+.star-shape {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #f8b033;
+  clip-path: polygon(
+    50% 0%,
+    61% 38%,
+    100% 38%,
+    69% 59%,
+    80% 100%,
+    50% 75%,
+    20% 100%,
+    31% 59%,
+    0% 38%,
+    39% 38%
+  );
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.star-button:focus-visible .star-shape,
+.star-button:hover .star-shape {
+  transform: scale(1.05) rotate(-4deg);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== BRIDGE & RIVER ILLUSTRATION ========== */
+
+.bridge-section {
+  position: relative;
+  height: 140px;
+  margin-bottom: 1.5rem;
+}
+
+/* Wavy river bar */
+.river {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 55%;
+  height: 40px;
+  background: #7ea7ff;
+  border-radius: 40px;
+  transform: skewX(-10deg);
+}
+
+/* Simple stylized bridge using border + background */
+.bridge {
+  position: absolute;
+  left: 12%;
+  bottom: 35%;
+  width: 55%;
+  height: 60px;
+  background: linear-gradient(120deg, #f1b96d, #e6a24b);
+  border-radius: 50px 50px 0 0;
+  border: 4px solid #c28a42;
+  border-bottom: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Bridge railings */
+.bridge::before,
+.bridge::after {
   content: "";
   position: absolute;
-  top: -18px;
-  right: -18px;
-  width: 60px;
-  height: 60px;
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
-  background-size: 6px 6px;
-  opacity: 0.5;
-}
-
-.category-list {
-  padding-left: 1.1rem;
-  margin: 0 0 0.7rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.category-link {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: #041322;
-}
-
-.category-link:hover {
-  text-decoration: underline;
-}
-
-/* Category-specific accent borders using palette colors */
-.category-food {
-  border-top: 4px solid var(--sandy-brown);
-}
-
-.category-events {
-  border-top: 4px solid var(--baby-blue-ice);
-}
-
-.category-history {
-  border-top: 4px solid var(--rosy-taupe);
-}
-
-.category-nature {
-  border-top: 4px solid var(--minted-teal);
-}
-
-.category-service {
-  border-top: 4px solid var(--blush-pop);
-}
-
-.category-transit {
-  border-top: 4px solid #c7cbe5;
-}
-
-/* ================= EVENTS ================= */
-
-.events {
-  background-color: #ffffff;
-}
-
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.1rem;
-}
-
-.event-card {
-  background-color: var(--card-bg);
-  border-radius: 1.4rem;
-  padding: 1.1rem 1.1rem 1rem;
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
-}
-
-.event-day {
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin: 0 0 0.2rem;
-}
-
-.event-meta {
-  margin-top: 0.1rem;
-  margin-bottom: 0.45rem;
-  font-size: 0.83rem;
-  color: var(--text-muted);
-}
-
-.event-desc {
-  margin-top: 0;
-  margin-bottom: 0.6rem;
-  font-size: 0.88rem;
-}
-
-/* ================= HOW IT WORKS ================= */
-
-.how-it-works {
-  background: linear-gradient(180deg, rgba(156, 201, 252, 0.15), rgba(127, 190, 171, 0.1));
-}
-
-.steps {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.step {
-  background-color: var(--card-bg);
-  border-radius: 1.3rem;
-  padding: 1.2rem;
-  border: 1px solid var(--border-subtle);
-}
-
-.step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
+  top: -25px;
+  width: 6px;
+  height: 48px;
+  background-color: #c28a42;
   border-radius: 999px;
-  background-color: var(--baby-blue-ice);
-  color: #041322;
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-bottom: 0.3rem;
 }
 
-/* ================= FOOTER ================= */
-
-.site-footer {
-  background-color: #041322;
-  color: #f6f9ff;
-  padding: 2rem 0 1.2rem;
-  margin-top: 1rem;
+.bridge::before {
+  left: 18%;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.4rem;
+.bridge::after {
+  right: 18%;
 }
 
-.footer-title {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
+/* ========== MAP & MARKERS ========== */
+
+.main-content {
+  padding: 0 1.1rem;
 }
 
-.footer-heading {
-  font-size: 1rem;
-  margin-top: 0;
+/* Map container that keeps markers positioned with percentages */
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 120%; /* aspect ratio box: tall like mockup */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
 }
 
-.footer-text {
-  font-size: 0.88rem;
-  color: rgba(226, 232, 240, 0.9);
+/* Simple “map-looking” background (replace with real map image if you want) */
+.map-background {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(#d9e5ff 12%, transparent 12%),
+    linear-gradient(90deg, #f7f7f7 12%, transparent 12%);
+  background-size: 40px 40px;
+  background-color: #f2efe9;
 }
 
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Red clickable squares */
+.map-marker {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background-color: #f44336;
+  border: 2px solid #b71c1c;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
-.footer-links li + li {
-  margin-top: 0.25rem;
+/* Slight scale on hover / focus */
+.map-marker:hover,
+.map-marker:focus-visible {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
 }
 
-.footer-links a {
-  color: rgba(226, 232, 240, 0.9);
-  text-decoration: none;
-  font-size: 0.9rem;
+/* Positions roughly matching your mockup */
+.marker-top {
+  top: 23%;
+  right: 18%;
+  transform: translate(50%, -50%);
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
+.marker-left {
+  bottom: 22%;
+  left: 20%;
+  transform: translate(-50%, 50%);
 }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: 1.5rem;
-  font-size: 0.8rem;
-  color: rgba(203, 213, 225, 0.9);
+.marker-right {
+  bottom: 18%;
+  right: 18%;
+  transform: translate(50%, 50%);
 }
 
-/* ================= TAG COLORS ================= */
-
-/* Using your palette for category tags */
-.tag-food {
-  background-color: var(--sandy-brown);
-  color: #422105;
+/* Info panel text */
+.info-panel {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 0.9rem 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #234;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.tag-events {
-  background-color: var(--baby-blue-ice);
-  color: #042133;
-}
+/* ========== RESPONSIVE: LARGER SCREENS ========== */
 
-.tag-nature {
-  background-color: var(--minted-teal);
-  color: #053429;
-}
-
-.tag-history {
-  background-color: var(--rosy-taupe);
-  color: #3b241f;
-}
-
-.tag-service {
-  background-color: var(--blush-pop);
-  color: #4b1234;
-}
-
-/* ================= RESPONSIVE ================= */
-
-/* Tablet & down */
-@media (max-width: 800px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-card {
-    order: -1; /* Put quest card on top for phones/tablets */
-  }
-
-  .header-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hero {
-    padding-top: 1.8rem;
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 1.9rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .category-card,
-  .event-card,
-  .step {
-    border-radius: 1.1rem;
-  }
-
-  .section {
-    padding: 1.8rem 0;
+@media (min-width: 600px) {
+  .page {
+    max-width: 480px; /* keep it phone-shaped even on big screens */
   }
 }
