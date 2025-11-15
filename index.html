@@ -1,12 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <title>Get to Know Bethlehem</title>
+
+  <!-- Make the layout responsive on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font for a friendly, student-oriented vibe -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/style/styles.css" />
 </head>
 <body>
-    <h1>Welcome tob bethlehem</h1>
-    
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="site-header">
+    <div class="container header-content">
+      <!-- Simple text logo; could be swapped for an image later -->
+      <a href="#" class="logo">
+        <span class="logo-mark">VB</span>
+        <span class="logo-text">Vibecode Bethlehem</span>
+      </a>
+
+      <!-- Main navigation links -->
+      <nav class="main-nav">
+        <a href="#" class="nav-link active">Home</a>
+        <a href="#categories" class="nav-link">Explore</a>
+        <a href="#events" class="nav-link">Events</a>
+        <a href="#how-it-works" class="nav-link">How it Works</a>
+        <a href="#footer" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <!-- Left side: main message for college students -->
+        <div class="hero-text">
+          <p class="eyebrow">For Lehigh & Moravian students</p>
+          <h1>Get to Know Bethlehem.</h1>
+          <p class="hero-subtitle">
+            Find your favorite coffee shop, weekend hike, volunteer spot, or late-night bites —
+            all in one place.
+          </p>
+
+          <!-- Primary call-to-actions -->
+          <div class="hero-actions">
+            <a href="#categories" class="btn btn-primary">Start Exploring</a>
+            <a href="#events" class="btn btn-ghost">See What’s Happening</a>
+          </div>
+
+          <!-- Small “fun fact” teaser inspired by your pop-up idea -->
+          <div class="fun-fact">
+            <span class="fun-fact-label">Bethlehem Fun Fact</span>
+            <p class="fun-fact-text">
+              Bethlehem used to be a major U.S. steel producer — now it’s home to festivals,
+              street art, and some seriously good food.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right side: card styled like a simple town map / quest selector -->
+        <aside class="hero-card" aria-label="Quick explore panel">
+          <!-- Comment: these “chips” highlight quick student paths into town -->
+          <h2 class="hero-card-title">Pick your first quest</h2>
+          <ul class="hero-quest-list">
+            <li class="quest-item">
+              <span class="quest-tag tag-food">Food</span>
+              <p class="quest-title">Southside Ramen & Tacos Run</p>
+              <p class="quest-meta">⏱ 2 hrs · $ · Walkable from campus</p>
+            </li>
+            <li class="quest-item">
+              <span class="quest-tag tag-events">Events</span>
+              <p class="quest-title">SteelStacks Movie Night</p>
+              <p class="quest-meta">⏱ 1.5 hrs · Outdoor vibes</p>
+            </li>
+            <li class="quest-item">
+              <span class="quest-tag tag-nature">Nature</span>
+              <p class="quest-title">Greenway Golden Hour Walk</p>
+              <p class="quest-meta">⏱ 45 min · Low effort, high serotonin</p>
+            </li>
+          </ul>
+          <button class="btn btn-secondary hero-card-btn" type="button">
+            Randomize a Quest
+          </button>
+          <p class="hero-card-note">
+            No account needed. Just pick a vibe and go.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= CATEGORY GRID ================= -->
+    <!-- Comment: this section mirrors the main content buckets from your outline -->
+    <section id="categories" class="section categories">
+      <div class="container">
+        <header class="section-header">
+          <h2>What do you want to discover?</h2>
+          <p>
+            Choose a category to see guides made for students — from cheap eats to volunteer
+            spots and local history.
+          </p>
+        </header>
+
+        <div class="category-grid">
+          <!-- Food & Cafes -->
+          <article class="category-card category-food">
+            <h3>Food & Cafés</h3>
+            <p>
+              Ramen, tacos, diners, coffee shops, and boba — sorted by price, vibes, and walk time.
+            </p>
+            <ul class="category-list">
+              <li>Student-rated restaurants & cafés</li>
+              <li>Price range & DoorDash availability</li>
+              <li>Late-night & study-spot filters</li>
+            </ul>
+            <a href="#" class="category-link">Browse food guides →</a>
+          </article>
+
+          <!-- Events & Entertainment -->
+          <article class="category-card category-events">
+            <h3>Events & Entertainment</h3>
+            <p>
+              Concerts, movie nights at ArtsQuest, pop-up markets, and more — all in one feed.
+            </p>
+            <ul class="category-list">
+              <li>Weekend event calendar</li>
+              <li>Student-friendly ticket tips</li>
+              <li>Indoor vs. outdoor filters</li>
+            </ul>
+            <a href="#" class="category-link">See what’s on →</a>
+          </article>
+
+          <!-- History & Culture -->
+          <article class="category-card category-history">
+            <h3>History & Culture</h3>
+            <p>
+              From the Bethlehem Steel legacy to murals, museums, and the Bethlehem Star.
+            </p>
+            <ul class="category-list">
+              <li>Short history snippets</li>
+              <li>Museum & landmark guides</li>
+              <li>Self-guided mural routes</li>
+            </ul>
+            <a href="#" class="category-link">Learn the story →</a>
+          </article>
+
+          <!-- Nature & Walks -->
+          <article class="category-card category-nature">
+            <h3>Nature & Walks</h3>
+            <p>
+              Greenway paths, river walks, hikes, and quiet spots to recharge between exams.
+            </p>
+            <ul class="category-list">
+              <li>Easy, medium, and long routes</li>
+              <li>Sunrise / sunset recommendations</li>
+              <li>Public-transit-friendly trails</li>
+            </ul>
+            <a href="#" class="category-link">Plan a walk →</a>
+          </article>
+
+          <!-- Service & Volunteering -->
+          <article class="category-card category-service">
+            <h3>Service & Volunteering</h3>
+            <p>
+              Connect with local orgs and find meaningful ways to give back to Bethlehem.
+            </p>
+            <ul class="category-list">
+              <li>Opportunities from CSO, LINC, and more</li>
+              <li>Short-term & long-term roles</li>
+              <li>Filter by interest & time commitment</li>
+            </ul>
+            <a href="#" class="category-link">Find a way to help →</a>
+          </article>
+
+          <!-- Transit & Tips -->
+          <article class="category-card category-transit">
+            <h3>Transit & Town Tips</h3>
+            <p>
+              Learn how to use free buses, where to cross the bridge, and how to not get lost.
+            </p>
+            <ul class="category-list">
+              <li>Free public transit routes for students</li>
+              <li>Bike & walking safety tips</li>
+              <li>Neighborhood explainers</li>
+            </ul>
+            <a href="#" class="category-link">Navigate Bethlehem →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EVENTS PREVIEW ================= -->
+    <section id="events" class="section events">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <h2>This week in Bethlehem</h2>
+          <p>Sample events you might see on the real app.</p>
+        </header>
+
+        <div class="events-grid">
+          <article class="event-card">
+            <p class="event-day">Fri</p>
+            <h3>Outdoor Movie at SteelStacks</h3>
+            <p class="event-meta">8:00 PM · Free with student ID</p>
+            <p class="event-desc">
+              Bring a blanket, grab snacks, and watch a movie with the blast furnaces in the
+              background.
+            </p>
+            <span class="event-tag tag-events">Events</span>
+          </article>
+
+          <article class="event-card">
+            <p class="event-day">Sat</p>
+            <h3>Southside Vintage Pop-Up Market</h3>
+            <p class="event-meta">12:00–4:00 PM · SouthSide</p>
+            <p class="event-desc">
+              Local vendors, vintage clothes, jewelry, and art — perfect for an off-campus walk.
+            </p>
+            <span class="event-tag tag-history">Culture</span>
+          </article>
+
+          <article class="event-card">
+            <p class="event-day">Sun</p>
+            <h3>Greenway Clean-Up + Coffee</h3>
+            <p class="event-meta">10:00 AM · Volunteer opportunity</p>
+            <p class="event-desc">
+              Join students and neighbors to clean the Greenway, then head to a local café after.
+            </p>
+            <span class="event-tag tag-service">Service</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section id="how-it-works" class="section how-it-works">
+      <div class="container">
+        <header class="section-header section-header--center">
+          <h2>How Vibecode works</h2>
+          <p>Designed to be quick enough for a study break and useful enough for the whole semester.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="step-number">1</span>
+            <h3>Pick a vibe</h3>
+            <p>Choose food, nature, history, service, or events based on what you’re in the mood for.</p>
+          </li>
+          <li class="step">
+            <span class="step-number">2</span>
+            <h3>Browse student-friendly guides</h3>
+            <p>See short guides with prices, time estimates, and how to get there from campus.</p>
+          </li>
+          <li class="step">
+            <span class="step-number">3</span>
+            <h3>Save your favorites</h3>
+            <p>Bookmark spots you like so it’s easy to plan the next weekend or show friends around.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="footer" class="site-footer">
+    <div class="container footer-grid">
+      <!-- Comment: Footer has quick info + space for credits -->
+      <div>
+        <h2 class="footer-title">Vibecode Bethlehem</h2>
+        <p class="footer-text">
+          Built by students, for students, to make Bethlehem feel less like “the town by campus”
+          and more like home.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="footer-heading">Quick links</h3>
+        <ul class="footer-links">
+          <li><a href="#categories">Explore categories</a></li>
+          <li><a href="#events">Events preview</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-heading">Stay in the loop</h3>
+        <p class="footer-text">
+          In the full app, you’ll be able to follow locals, save routes, and get fun fact pop-ups
+          when you’re walking around town.
+        </p>
+      </div>
+    </div>
+
+    <p class="footer-bottom">
+      © 2025 NC + NJ (In collaboration with ChatGPT) · Prototype homepage for “Get to Know Bethlehem”
+    </p>
+  </footer>
 </body>
 </html>

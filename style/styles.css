@@ -1,0 +1,615 @@
+/* ================= ROOT & GLOBAL STYLES ================= */
+
+/* Color palette based on your image */
+:root {
+  --baby-blue-ice: #9cc9fc;
+  --rosy-taupe: #bf9588;
+  --minted-teal: #7fbeab;
+  --sandy-brown: #ffa85c;
+  --blush-pop: #f9b3d1;
+
+  --bg-page: #fdfbff;
+  --text-main: #1f1f2b;
+  --text-muted: #55586a;
+  --card-bg: #ffffff;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* Basic reset + base typography */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.6;
+  font-size: 16px; /* good default for mobile */
+}
+
+/* Reusable layout helper for consistent max-width */
+.container {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
+
+.site-header {
+  background: linear-gradient(90deg, var(--baby-blue-ice), var(--minted-teal));
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  gap: 0.5rem;
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #041322;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.logo-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background-color: #041322;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.logo-text {
+  font-size: 0.95rem;
+}
+
+/* Navigation links */
+.main-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;              /* mobile-friendly scroll */
+  padding-bottom: 0.2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;                 /* hide scrollbar on mobile */
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 0.55rem 0.9rem;       /* larger tap target */
+  border-radius: 999px;
+  color: #042133;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  background-color: #041322;
+  color: #ffffff;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  padding: 2.4rem 0 2.1rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Left-side hero text */
+.hero-text h1 {
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
+  line-height: 1.1;
+  margin: 0.2rem 0 0.75rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 32rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* Hero buttons */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.4rem 0 1.2rem;
+}
+
+/* Shared button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;        /* bigger hit area on touch devices */
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--sandy-brown), var(--blush-pop));
+  color: #261404;
+  box-shadow: 0 12px 25px rgba(148, 87, 60, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(148, 87, 60, 0.45);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid rgba(15, 23, 42, 0.2);
+}
+
+.btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-secondary {
+  background-color: #041322;
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background-color: #0b2235;
+}
+
+/* Fun fact pill */
+.fun-fact {
+  border-radius: 1.1rem;
+  padding: 0.9rem 1rem;
+  background: rgba(156, 201, 252, 0.25);
+  border: 1px dashed rgba(4, 19, 34, 0.12);
+  max-width: 29rem;
+}
+
+.fun-fact-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: #041322;
+}
+
+.fun-fact-text {
+  margin: 0.15rem 0 0;
+  font-size: 0.9rem;
+}
+
+/* Right-side hero card */
+.hero-card {
+  background: radial-gradient(circle at top left, var(--baby-blue-ice) 0, #ffffff 55%);
+  border-radius: 1.75rem;
+  padding: 1.6rem 1.5rem 1.4rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-subtle);
+}
+
+.hero-card-title {
+  margin: 0 0 0.85rem;
+  font-size: 1.1rem;
+}
+
+.hero-quest-list {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.quest-item {
+  padding: 0.7rem 0.8rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(4, 19, 34, 0.06);
+}
+
+.quest-title {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+}
+
+.quest-meta {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.hero-card-btn {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.hero-card-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Category-colored tags used throughout */
+.quest-tag,
+.event-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* ================= SECTIONS ================= */
+
+.section {
+  padding: 2.2rem 0;
+}
+
+.section-header {
+  margin-bottom: 1.6rem;
+}
+
+.section-header h2 {
+  font-size: 1.6rem;
+  margin: 0 0 0.3rem;
+}
+
+.section-header p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 32rem;
+}
+
+.section-header--center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= CATEGORY GRID ================= */
+
+.categories {
+  background: linear-gradient(180deg, rgba(249, 179, 209, 0.12), transparent 40%);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+/* Individual category cards */
+.category-card {
+  background-color: var(--card-bg);
+  border-radius: 1.3rem;
+  padding: 1.3rem 1.2rem 1.2rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.category-card p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Dot pattern accent in top right of cards */
+.category-card::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 60px;
+  height: 60px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 6px 6px;
+  opacity: 0.5;
+}
+
+.category-list {
+  padding-left: 1.1rem;
+  margin: 0 0 0.7rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.category-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #041322;
+}
+
+.category-link:hover {
+  text-decoration: underline;
+}
+
+/* Category-specific accent borders using palette colors */
+.category-food {
+  border-top: 4px solid var(--sandy-brown);
+}
+
+.category-events {
+  border-top: 4px solid var(--baby-blue-ice);
+}
+
+.category-history {
+  border-top: 4px solid var(--rosy-taupe);
+}
+
+.category-nature {
+  border-top: 4px solid var(--minted-teal);
+}
+
+.category-service {
+  border-top: 4px solid var(--blush-pop);
+}
+
+.category-transit {
+  border-top: 4px solid #c7cbe5;
+}
+
+/* ================= EVENTS ================= */
+
+.events {
+  background-color: #ffffff;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+}
+
+.event-card {
+  background-color: var(--card-bg);
+  border-radius: 1.4rem;
+  padding: 1.1rem 1.1rem 1rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.event-day {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+}
+
+.event-meta {
+  margin-top: 0.1rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+.event-desc {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 0.88rem;
+}
+
+/* ================= HOW IT WORKS ================= */
+
+.how-it-works {
+  background: linear-gradient(180deg, rgba(156, 201, 252, 0.15), rgba(127, 190, 171, 0.1));
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.step {
+  background-color: var(--card-bg);
+  border-radius: 1.3rem;
+  padding: 1.2rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background-color: var(--baby-blue-ice);
+  color: #041322;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+  background-color: #041322;
+  color: #f6f9ff;
+  padding: 2rem 0 1.2rem;
+  margin-top: 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.4rem;
+}
+
+.footer-title {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.footer-text {
+  font-size: 0.88rem;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li + li {
+  margin-top: 0.25rem;
+}
+
+.footer-links a {
+  color: rgba(226, 232, 240, 0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: rgba(203, 213, 225, 0.9);
+}
+
+/* ================= TAG COLORS ================= */
+
+/* Using your palette for category tags */
+.tag-food {
+  background-color: var(--sandy-brown);
+  color: #422105;
+}
+
+.tag-events {
+  background-color: var(--baby-blue-ice);
+  color: #042133;
+}
+
+.tag-nature {
+  background-color: var(--minted-teal);
+  color: #053429;
+}
+
+.tag-history {
+  background-color: var(--rosy-taupe);
+  color: #3b241f;
+}
+
+.tag-service {
+  background-color: var(--blush-pop);
+  color: #4b1234;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet & down */
+@media (max-width: 800px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    order: -1; /* Put quest card on top for phones/tablets */
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    padding-top: 1.8rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .category-card,
+  .event-card,
+  .step {
+    border-radius: 1.1rem;
+  }
+
+  .section {
+    padding: 1.8rem 0;
+  }
+}
