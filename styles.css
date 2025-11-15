@@ -179,6 +179,7 @@ body {
 
 /* Simple “map-looking” background (replace with real map image if you want) */
 .map-background {
+  z-index: -999;
   position: absolute;
   inset: 0;
   background-image:
