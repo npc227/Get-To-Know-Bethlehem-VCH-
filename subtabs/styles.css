@@ -1,0 +1,272 @@
+/* =========================================
+   GLOBAL STYLES
+   - Shared by Food, History, and Recreation pages
+   - Mobile-first, single-column layout
+   ========================================= */
+
+/* Reset basic box behavior */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margins */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Base font + background color */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #102030;
+}
+
+/* Main page wrapper (keeps content narrow and centered) */
+.page {
+  max-width: 480px;        /* looks like a phone layout even on big screens */
+  margin: 0 auto;
+  padding: 1.2rem 1rem 2.5rem;
+}
+
+/* Light background variants for different tabs */
+.bg-blue {
+  background-color: #e2f0ff;
+}
+
+.bg-cream {
+  background-color: #fdf3e6;
+}
+
+/* Visually hidden helper (if you want to hide headings but keep for screen readers) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* =========================================
+   HEADER AREA: STAR + TAB LABEL
+   ========================================= */
+
+.tab-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.4rem;
+}
+
+/* Clickable star that links back to index.html */
+.star-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Actual star shape built with clip-path so no image is needed */
+.star-shape {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #f6b735;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    100% 35%,
+    68% 57%,
+    79% 100%,
+    50% 75%,
+    21% 100%,
+    32% 57%,
+    0% 35%,
+    39% 35%
+  );
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Slight animation on hover / keyboard focus */
+.star-button:hover .star-shape,
+.star-button:focus-visible .star-shape {
+  transform: scale(1.05) rotate(-4deg);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Pill-shaped label next to star */
+.tab-label {
+  flex: 1;
+  text-align: center;
+  padding: 0.65rem 0.5rem;
+  border-radius: 999px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Color variations for each tab */
+.tab-label--food {
+  background: #ffa850;       /* orange */
+}
+
+.tab-label--history {
+  background: #e45445;       /* red */
+}
+
+.tab-label--recreation {
+  background: #6b8cff;       /* blue */
+}
+
+/* =========================================
+   CARD COMPONENT
+   - Used for restaurants, events, and history sections
+   ========================================= */
+
+.tab-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;                 /* space between cards */
+}
+
+/* Generic card styling */
+.card {
+  background-color: #d7e7ff;  /* light blue base */
+  border-radius: 14px;
+  padding: 0.75rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Tint variations by category (optional for subtle variety) */
+.card--food {
+  background-color: #d9ecff;
+}
+
+.card--history {
+  background-color: #ffe4cf;
+}
+
+.card--recreation {
+  background-color: #d9ecff;
+}
+
+/* Main layout inside card:
+   - Row layout for Food & Recreation cards
+   - Column layout for History cards (using modifier class) */
+.card-body {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Column layout variant used on history.html */
+.card-body--column {
+  flex-direction: column;
+}
+
+/* Image placeholder (gray rectangle) */
+.image-placeholder {
+  width: 34%;
+  min-width: 120px;
+  aspect-ratio: 4 / 3;
+  background-color: #d0d0d0;
+  border-radius: 8px;
+}
+
+/* Larger placeholder for the “gallery” areas */
+.image-placeholder--gallery {
+  width: 100%;
+  min-width: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text column inside card */
+.card-text {
+  flex: 1;
+}
+
+/* Title styles */
+.card-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
+
+/* Centered titles for History sections */
+.card-title--center {
+  text-align: center;
+}
+
+/* Smaller heading used for “Address” / “What to expect” labels */
+.card-subheading {
+  margin: 0.35rem 0 0.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Regular paragraph text */
+.card-paragraph {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Bullet list for facts */
+.card-list {
+  margin: 0 0 0.45rem 1.1rem;
+  padding: 0;
+  font-size: 0.88rem;
+}
+
+/* Simple link for “menu link” / “event website” */
+.card-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2457d7;
+  text-decoration: none;
+}
+
+.card-link:hover,
+.card-link:focus {
+  text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVE TWEAKS
+   ========================================= */
+
+/* Slightly adjust layout for very small phones */
+@media (max-width: 360px) {
+  .card-body {
+    flex-direction: column;    /* stack image above text */
+  }
+
+  .image-placeholder {
+    width: 100%;
+  }
+}
+
+/* Slight changes for tablets and bigger screens */
+@media (min-width: 600px) {
+  .page {
+    max-width: 520px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+}
