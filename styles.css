@@ -168,6 +168,8 @@ body {
   padding-top: 90%; /* aspect ratio box: tall like mockup */
   border-radius: 12px;
   overflow: hidden;
+  border-width: 10px;
+  border-color: green;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   margin-bottom: 1rem;
   background-image: url(./img/currentMap.png);
@@ -176,32 +178,32 @@ body {
 /* Red clickable squares */
 .map-marker {
   position: absolute;
-  width: 44px;
-  height: 44px;
-  background-color: #f44336;
-  border: 2px solid #b71c1c;
+  width: 90px;
+  height: 90px;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
 /* Positions roughly matching your mockup */
 .marker-top {
+  height: 110px;
   top: 23%;
-  right: 18%;
+  right: 14%;
   transform: translate(50%, -50%);
 }
 
 .marker-left {
-  bottom: 22%;
+  bottom: 40%;
   left: 20%;
   transform: translate(-50%, 50%);
 }
 
 .marker-right {
-  bottom: 18%;
-  right: 18%;
+  width: 120px;
+  height: 120px;
+  bottom: 50%;
+  right: 20%;
   transform: translate(50%, 50%);
 }
 

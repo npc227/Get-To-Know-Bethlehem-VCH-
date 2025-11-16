@@ -9,8 +9,8 @@
 
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body style="justify-content: center;">
-  <div class="page">
+<body>
+  
 
     <!-- ========== TOP HERO AREA ========== -->
     <header class="hero">
@@ -30,10 +30,7 @@
     </header>
 
     <!-- ========== BRIDGE / RIVER ILLUSTRATION ========== -->
-    <section class="bridge-section" aria-hidden="true">
-      <div class="river"></div>
-      <div class="bridge"></div>
-    </section>
+    <img src="./img/bridg.png" style="width: 500px; margin-right: 200px;">
 
     <!-- ========== MAP WITH CLICKABLE RED SQUARES ========== -->
     <main class="main-content" style="margin-left: 10%; max-width: 360px; max-height: 301;">
@@ -41,16 +38,22 @@
         <div class="map-wrapper" style="max-width: 360px; max-height: 301;">
 
           <!-- Clickable red squares (map markers) -->
-          <a style="background-color: red;" href="./subtabs/food.html" class="map-marker marker-top">Food</a>
+           <a href="./subtabs/food.html">
+                <img class="map-marker marker-left" src="./img/Goos.png">
+           </a>
 
-          <a style="background-color: red;" href="./subtabs/history.html" class="map-marker marker-left">History</a>
+           <a href="./subtabs/history.html">
+                <img class="map-marker marker-top" src="./img/steel.png">
+           </a>
 
-          <a style="background-color: red;" href="./subtabs/recreation.html" class="map-marker marker-right">Recreation</a>
+           <a href="./subtabs/recreation.html">
+                <img class="map-marker marker-right" src="./img/green.png">
+           </a>
+
         </div>
 
     </main>
 
-  </div>
 
 </body>
 </html>
