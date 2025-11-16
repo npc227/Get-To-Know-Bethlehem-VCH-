@@ -245,21 +245,7 @@ body {
   text-decoration: underline;
 }
 
-/*
-Source - https://stackoverflow.com/a
-Posted by Praveen Kumar Purushothaman
-Retrieved 2025-11-16, License - CC BY-SA 3.0
-*/
 
-section {background-color: #ccf; border: 5px solid #99f; display: none; line-height: 500px; width: 500px; margin: 15px auto; text-align: center;}
-section:target {display: block;}
-
-#nav,
-#nav li {display: block; margin: 0; padding: 0; list-style: none; text-align: center;}
-#nav li {display: inline-block;}
-#nav li a {display: block; text-decoration: none; padding: 3px; margin: 5px; border: 1px solid #99f; border-radius: 5px;}
-#nav li a:focus,
-#nav li a:active {background-color: #ccf; color: #fff;}
 
 /* =========================================
    RESPONSIVE TWEAKS
