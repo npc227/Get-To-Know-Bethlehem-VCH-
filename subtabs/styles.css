@@ -255,9 +255,7 @@ body {
     flex-direction: column;    /* stack image above text */
   }
 
-  .image-placeholder {
-    width: 100%;
-  }
+  
 }
 
 /* Slight changes for tablets and bigger screens */
