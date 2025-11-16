@@ -8,8 +8,8 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding: 5px;
 }
 
 body {
@@ -91,59 +91,6 @@ body {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 } */
 
-/* ========== BRIDGE & RIVER ILLUSTRATION ========== */
-
-.bridge-section {
-  position: relative;
-  height: 140px;
-  margin-bottom: 1.5rem;
-}
-
-/* Wavy river bar */
-.river {
-  position: absolute;
-  left: -10%;
-  right: -10%;
-  top: 55%;
-  height: 40px;
-  background: #7ea7ff;
-  border-radius: 40px;
-  transform: skewX(-10deg);
-}
-
-/* Simple stylized bridge using border + background */
-.bridge {
-  position: absolute;
-  left: 12%;
-  bottom: 35%;
-  width: 55%;
-  height: 60px;
-  background: linear-gradient(120deg, #f1b96d, #e6a24b);
-  border-radius: 50px 50px 0 0;
-  border: 4px solid #c28a42;
-  border-bottom: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Bridge railings */
-.bridge::before,
-.bridge::after {
-  content: "";
-  position: absolute;
-  top: -25px;
-  width: 6px;
-  height: 48px;
-  background-color: #c28a42;
-  border-radius: 999px;
-}
-
-.bridge::before {
-  left: 18%;
-}
-
-.bridge::after {
-  right: 18%;
-}
 
 /* ========== MAP & MARKERS ========== */
 
