@@ -37,7 +37,7 @@ body {
 }
 
 .bg-cream {
-  background-color: #fdf3e6;
+  background-color: #e2f0ff;
 }
 
 /* Visually hidden helper (if you want to hide headings but keep for screen readers) */
@@ -149,15 +149,15 @@ body {
 
 /* Tint variations by category (optional for subtle variety) */
 .card--food {
-  background-color: #d9ecff;
+  background-color: rgb(254, 250, 244);
 }
 
 .card--history {
-  background-color: #ffe4cf;
+  background-color: rgb(254, 250, 244);
 }
 
 .card--recreation {
-  background-color: #d9ecff;
+  background-color: rgb(254, 250, 244);
 }
 
 /* Main layout inside card:
