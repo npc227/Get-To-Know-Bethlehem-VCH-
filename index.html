@@ -23,9 +23,7 @@
       </div>
 
       <!-- Separate star element that is clickable -->
-      <button class="star-button" aria-label="Bethlehem star hotspot">
-        <span class="star-shape"></span>
-      </button>
+      <img src="./img/bstar.png" class="star-shape">
     </header>
 
     <!-- ========== BRIDGE / RIVER ILLUSTRATION ========== -->
@@ -40,8 +38,6 @@
         <h1 class="visually-hidden">Explore Bethlehem</h1>
 
         <div class="map-wrapper">
-          <!-- Replace `map-placeholder.png` with your actual Bethlehem map image -->
-          <div class="map-background"></div>
 
           <!-- Clickable red squares (map markers) -->
           <a style="background-color: red;" href="./subtabs/food.html" class="map-marker marker-top">Food</a>
@@ -51,32 +47,10 @@
           <a style="background-color: red;" href="./subtabs/recreation.html" class="map-marker marker-right">Recreation</a>
         </div>
 
-        <!-- Info panel that updates when star or markers are tapped -->
-        <div class="info-panel" id="info-panel">
-          Tap the star or a red square to learn more about that part of Bethlehem.
-        </div>
       </section>
     </main>
 
   </div>
 
-  <!-- Simple JS to make star and squares interactive -->
-  <script>
-    const infoPanel = document.getElementById("info-panel");
-
-    const starButton = document.querySelector(".star-button");
-    starButton.addEventListener("click", () => {
-      infoPanel.textContent =
-        "The Bethlehem Star sits high on South Mountain and can be seen from all across town at night.";
-    });
-
-    const markers = document.querySelectorAll(".map-marker");
-    markers.forEach((marker) => {
-      marker.addEventListener("click", () => {
-        const text = marker.getAttribute("data-location");
-        infoPanel.textContent = text;
-      });
-    });
-  </script>
 </body>
 </html>
